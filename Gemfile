@@ -43,7 +43,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-bundler', require: false
 end
+gem 'guard-rspec', require: false
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
