@@ -45,6 +45,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-bundler', require: false
+  gem 'factory_bot_rails'
 end
 gem 'guard-rspec', require: false
 
