@@ -28,7 +28,15 @@
         <h2>Hey - Chat2Me</h2>
         <p class="lead">Hey! This is the easier way to chat with me!</p>
       </div>
-      <%= yield %>
+      <div class="row">
+        <%= render  "messages/index" %>
+        <div class="col-md-8 order-md-1">
+          <%= render 'shared/tabs' %>
+          <div class="col-md-4 order-md-1" id="content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
