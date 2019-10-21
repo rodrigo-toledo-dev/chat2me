@@ -13,5 +13,9 @@
   <li class="nav-item">
     <%= link_to 'Dashboard', root_path, class: need_current_tab_class?(controller_name == 'dashboard'), id: "dashboard-in-tab", 'data-toggle': "tab", 'role': "tab", 'aria-controls': "sign-in"  %>
   </li>
+
+  <li class="nav-item">
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: need_current_tab_class?(false), id: "log-out-tab", 'data-toggle': "tab", 'role': "tab", 'aria-controls': "log-out"  %>
+  </li>
 <% end %>
 </ul>
