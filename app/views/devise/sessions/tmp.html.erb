@@ -1,0 +1,93 @@
+<div class="tab-content" id="sign-up-tab">
+    <div class="tab-pane fade show active" id="sign-up" role="tabpanel" aria-labelledby="sign-up-tab">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :email %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <%= f.email_field :email, autocomplete: "email", placeholder: 'emaail is required', class: 'form-control' %>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your email is required.
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <%= f.label :instagram %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <%= f.text_field :instagram, placeholder: 'your instagram is required', class: 'form-control' %>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your email is required.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "", value: '', class: 'form-control'%>
+          <div class="invalid-feedback">
+            Valid password is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "", alue: '', class: 'form-control'%>
+          <div class="invalid-feedback">
+            Confirm your password, must be equal.
+          </div>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="">
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="">
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-info btn-lg btn-block" type="submit">
+        <i class="fas fa-user-plus"></i>
+        Sign Up
+      </button>
+  
+  
+  
+  
+  
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+  
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
+  </div>
