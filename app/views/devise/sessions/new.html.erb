@@ -1,26 +1,48 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="tab-content" id="sign-up-tab">
+    <div class="tab-pane fade show active" id="sign-up" role="tabpanel" aria-labelledby="sign-up-tab">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :email %>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <%= f.email_field :email, autocomplete: "email", placeholder: 'emaail is required', class: 'form-control' %>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your email is required.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "", value: '', class: 'form-control'%>
+          <div class="invalid-feedback">
+            Valid password is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "", alue: '', class: 'form-control'%>
+          <div class="invalid-feedback">
+            Confirm your password, must be equal.
+          </div>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <button class="btn btn-info btn-lg btn-block" id="login" type="submit">
+        <i class="fas fa-user-check"></i>
+        Login
+      </button>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-
-  <%= render  "shared/tabs" %>
 <% end %>
+
+  

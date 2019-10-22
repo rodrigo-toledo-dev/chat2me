@@ -1,13 +1,13 @@
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 <% unless user_signed_in? %>
   <li class="nav-item">
-    <a class="nav-link <%= controller_name == 'sessions' ? 'active show' : '' %>" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="<%= controller_name == 'sessions' ? 'true' : 'false' %>">Login In</a>
+    <a class="nav-link <%= need_current_tab_class?(controller_name == 'sessions') %>" id="login-tab" href="<%=new_user_session_path %>" role="tab" aria-controls="login" aria-selected="<%= need_current_tab_class?(controller_name == 'sessions') %>">Login In</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up" role="tab" aria-controls="sign-up" aria-selected="<%= (devise_mapping.registerable? && controller_name != 'registrations') ? 'true' : 'false' %>">Sign Up</a>
+    <a class="nav-link <%= need_current_tab_class?(controller_name == 'registrations') %>" id="sign-up-tab" href="<%= new_user_registration_path %>" role="tab" aria-controls="sign-up" aria-selected="<%= need_current_tab_class?(controller_name == 'registrations')%>">Sign Up</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="forgot-password-tab" data-toggle="tab" href="#forgot-password" role="tab" aria-controls="forgot-password" aria-selected="<%= (devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations') ? 'true' : 'false' %>">Forget Password?</a>
+    <a class="nav-link <%= need_current_tab_class?(controller_name == 'passwords') %>%" id="forgot-password-tab" href="#forgot-password" role="tab" aria-controls="forgot-password" aria-selected="<%= need_current_tab_class?(controller_name == 'passwords') %>">Forget Password?</a>
   </li>
 <% else %>
   <li class="nav-item">
